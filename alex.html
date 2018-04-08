@@ -6,12 +6,22 @@
     .hidden {
       display: none;
     }
+
+    .red {
+      color: red;
+    }
+
+    .padded {
+      padding-left: 100px;
+    }
   </style>
 </head>
 <body>
   <h1 onclick="hideParagraph()">Alexander Hamilton</h1>
   <p onclick="doSomethingElse()">Alexander Hamilton (January 11, 1755 or 1757 – July 12, 1804) was an American statesman and one of the Founding Fathers of the United States. He was an influential interpreter and promoter of the U.S. Constitution, as well as the founder of the nation's financial system, the Federalist Party, the United States Coast Guard, and The New York Post newspaper.</p>
   <p id="coordinates">Here is where the coordinates will go</p>
+
+  <button onclick="setRandomColor()">Set header to random color</button>
 
   <script>
     function doSomething() {
@@ -37,6 +47,29 @@
       // paragraph.style.display = 'none';
       paragraph.classList.toggle('hidden');
     }
+
+    function makePaddingOneHundred() {
+      // console.log('making header red....');
+      // grab the HTML element
+      var header = document.querySelector('h1');
+      console.log(header);
+      // modify it
+      header.classList.add('padded');
+    }
+
+    function setRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      // get the dom element
+      var header = document.querySelector('h1');
+      // set the color to the random color
+      header.style.color = color;
+    }
+
+
   </script>
 </body>
 </html>
