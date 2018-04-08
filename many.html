@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Example</title>
+  <style>
+    .red {
+      color: red;
+    }
+
+    .blue {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <p onmousedown="changeParagraph(this)">First p tag</p>
+  <p onmousedown="changeParagraph(this)">Second p tag</p>
+  <p onmousedown="changeParagraph(this)">Third p tag</p>
+  <p onmousedown="changeParagraph(this)">Fourth p tag</p>
+  <button onclick="makeParagraphsBlue()">Make all the paragraphs blue</button>
+  <script>
+    function changeParagraph(theParagraph) {
+      theParagraph.classList.toggle('red');
+    }
+
+    function makeParagraphsBlue() {
+      console.log("In the paragraph blue thing");
+      // get ALL the paragraphs
+      var paragraphs = document.querySelectorAll('p');
+      console.log(paragraphs);
+      for (var i = 0; i < paragraphs.length; i++) {
+        paragraphs[i].classList.add('blue');
+      }
+      // make them blue
+    }
+  </script>
+</body>
+</html>
