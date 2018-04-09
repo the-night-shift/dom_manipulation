@@ -4,10 +4,61 @@ Start with a basic todo list:
 <html>
 <head>
   <title>JavaScript Example</title>
+  <style type="text/css">
+    .complete {
+      text-decoration: line-through;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <p>Pay bills</p>
-  <p>Wash car</p>
-  <p>Get laundry</p>
+  <p id="counter">0</p>
+  <p onclick="toggleComplete(this)">Pay bills</p>
+  <p onclick="toggleComplete(this)">Wash car</p>
+  <p onclick="toggleComplete(this)">Get laundry</p>
+
+  <button onclick="hideCompletedTasks()">Click this to hide all the completed tasks</button>
+
+  <button onclick="showHiddenTasks()">Click this to show all the hidden tasks</button>
+
+  <script type="text/javascript">
+    function toggleComplete(theParagraph) {
+      // grab the HTML element
+      // modify the element
+      theParagraph.classList.toggle('complete');
+      // update the counter
+      // select the counter
+      var numberOfCompletedTasks = document.querySelector('#counter');
+      console.log('numberOfCompletedTasks');
+      console.log(numberOfCompletedTasks.innerText);
+      // how many complete tasks are there
+      var completedTasks = document.querySelectorAll('.complete');
+      // update the contents of the counter
+      numberOfCompletedTasks.innerText = completedTasks.length
+    }
+
+    function hideCompletedTasks() {
+      // find all the tasks that are completed
+      var completedTasks = document.querySelectorAll('.complete');
+      // hide each task that has been completed
+      for (var i = 0; i < completedTasks.length; i++) {
+        completedTasks[i].classList.add('hidden');
+      }
+    }
+
+    function showHiddenTasks() {
+      console.log('in the show hidden tasks function');
+      // grab all the hidden tasks
+      var hiddenTasks = document.querySelectorAll('.hidden');
+      // get rid of the hidden class from each of them
+      for (var i = 0; i < hiddenTasks.length; i++) {
+        hiddenTasks[i].classList.remove('hidden');
+      }
+    }
+
+  </script>
 </body>
 </html>
